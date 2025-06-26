@@ -1,0 +1,15 @@
+name: Simple HTML Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check for index.html presence
+        run: test -f index.html && echo "index.html exists"
